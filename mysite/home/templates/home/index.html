@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="author" content="name">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter city" name="city">
+        <button type="submit">Enter</button>
+    </form>
+    <h1>{{description}}</h1>
+    <h1>{{temp}}</h1>
+    <h1>{{day}}</h1>
+    <h1>{{city}}</h1>
+    <img src='https://api.openweathermap.org/img/w/{{icon}}.png' width="100px"> -->
+    <div class="container">
+        <form method="POST"> 
+            {% csrf_token %}
+          <input type="text" name="city" placeholder="Enter City">
+          <button type="submit" class="btn">Enter</button>
+        </form>
+        <div class="weather">
+          <div class="left">
+            <h2>{{C_temp}} &deg;C - {{F_temp}} &deg;F</h2>
+            <h3>{{city}}</h3>
+          </div>
+          <div class="right">
+            <div class="icon">
+              <p><img src='https://api.openweathermap.org/img/w/{{icon}}.png' width="100px"></p>
+            </div>
+            <div class="condition">
+              <p>{{description}}</p>
+              <p>{{day}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
